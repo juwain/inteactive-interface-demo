@@ -15,11 +15,9 @@ export default class App extends React.Component {
   setLayout(code) {
     clearTimeout(this.timeout);
 
-    this.timeout = setTimeout((function() {
-      this.setState({
-        layout: code
-      });
-    }).bind(this), 1000);
+    this.timeout = setTimeout(
+      () => this.setState({layout: code}),
+    1000);
   }
   render() {
     return (
