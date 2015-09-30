@@ -1,0 +1,23 @@
+body {
+  background-color: aliceblue;
+}
+
+.app {
+  display: flex;
+  height: calc(100vh - 20px);
+}
+
+.layout-editor-box {
+  width: 25%;
+}
+
+.view-box {
+  width: 75%;
+}
+
+.layout-editor-box,
+.view-box {
+  border: 1px solid #cccccc;
+  margin: 10px;
+  box-sizing: border-box;
+}

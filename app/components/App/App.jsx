@@ -1,6 +1,7 @@
 import React from 'react';
-import LayoutEditor from './LayoutEditor.jsx';
-import View from './View.jsx';
+import LayoutEditor from '../LayoutEditor/LayoutEditor.jsx';
+import View from '../View/View.jsx';
+import './App.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,9 +22,13 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <LayoutEditor onChange={this.setLayout} />
-        <View layout={this.state.layout} />
+      <div className='app'>
+        <div className='layout-editor-box'>
+          <LayoutEditor onChange={this.setLayout} />
+        </div>
+        <div className='view-box'>
+          <View layout={this.state.layout} />
+        </div>
       </div>
     );
   }
