@@ -1,10 +1,9 @@
-body {
-  background-color: aliceblue;
-}
+@import "normalize.css/normalize.css";
+@import "./common.css";
 
-.app {
+.layout {
   display: flex;
-  height: calc(100vh - 20px);
+  height: 100vh;
 }
 
 .editors {

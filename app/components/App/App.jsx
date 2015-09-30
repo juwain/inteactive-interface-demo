@@ -23,7 +23,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div styleName='app'>
+      <div styleName='layout'>
         <div styleName='editors'>
           <LayoutEditor onChange={this.setLayout} />
         </div>

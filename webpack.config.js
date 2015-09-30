@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var postcssImport = require('postcss-import');
 
 var ROOT_PATH = path.resolve(__dirname);
 
@@ -31,7 +32,14 @@ var config = {
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },]
   },
   postcss: function () {
-    return [autoprefixer];
+    return [
+      postcssImport({
+        onImport: function (files) {
+          files.forEach(this.addDependency);
+        }.bind(this)
+      }),
+      autoprefixer
+    ];
   },
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
