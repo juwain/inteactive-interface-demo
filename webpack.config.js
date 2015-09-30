@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var ROOT_PATH = path.resolve(__dirname);
@@ -27,13 +28,13 @@ var config = {
       include: path.resolve(ROOT_PATH, 'app')
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader!postcss-loader'
-    }]
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },]
   },
   postcss: function () {
     return [autoprefixer];
   },
   plugins: [
+    new ExtractTextPlugin('style.css', { allChunks: true }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'SVG tutorial app'

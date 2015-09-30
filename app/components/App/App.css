@@ -7,16 +7,16 @@ body {
   height: calc(100vh - 20px);
 }
 
-.layout-editor-box {
+.editors {
   width: 25%;
 }
 
-.view-box {
+.view {
   width: 75%;
 }
 
-.layout-editor-box,
-.view-box {
+.editors,
+.view {
   border: 1px solid #cccccc;
   margin: 10px;
   box-sizing: border-box;

@@ -1,9 +1,10 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
 import LayoutEditor from '../LayoutEditor/LayoutEditor.jsx';
 import View from '../View/View.jsx';
-import './App.css';
+import styles from './App.css';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,14 +23,16 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div className='app'>
-        <div className='layout-editor-box'>
+      <div styleName='app'>
+        <div styleName='editors'>
           <LayoutEditor onChange={this.setLayout} />
         </div>
-        <div className='view-box'>
+        <div styleName='view'>
           <View layout={this.state.layout} />
         </div>
       </div>
     );
   }
 }
+
+export default CSSModules(App, styles);
