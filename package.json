@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "react": "^0.13.3",
+    "react-ace": "^2.5.0",
     "react-css-modules": "^3.2.3"
   }
 }
