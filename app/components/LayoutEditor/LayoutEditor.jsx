@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import AceEditor from 'react-ace-wrapper';
-import brace from 'brace';
+import 'brace';
 import styles from './LayoutEditor.css';
 
 class LayoutEditor extends React.Component {
