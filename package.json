@@ -34,8 +34,9 @@
     "webpack-dev-server": "^1.12.0"
   },
   "dependencies": {
+    "brace": "^0.5.1",
     "react": "^0.13.3",
-    "react-ace": "^2.5.0",
+    "react-ace-wrapper": "^1.0.1",
     "react-css-modules": "^3.2.3"
   }
 }

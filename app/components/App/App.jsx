@@ -9,7 +9,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      layout: ''
+      layout: '',
+      settings: {
+        layoutMode: 'html',
+        theme: 'github'
+      }
     };
 
     this.setLayout = this.setLayout.bind(this);
@@ -25,7 +29,7 @@ class App extends React.Component {
     return (
       <div styleName='layout'>
         <div styleName='editors'>
-          <LayoutEditor onChange={this.setLayout} />
+          <LayoutEditor settings={this.state.settings} onChange={this.setLayout} />
         </div>
         <div styleName='view'>
           <View layout={this.state.layout} />
