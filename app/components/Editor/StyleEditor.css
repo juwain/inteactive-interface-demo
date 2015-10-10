@@ -1,0 +1,3 @@
+.style-editor {
+  composes: editor from './Editor.css';
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import styles from './EditorHeading.css';
+import styles from './Heading.css';
 
-class EditorHeading extends React.Component {
+class Heading extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -15,4 +15,4 @@ class EditorHeading extends React.Component {
   }
 }
 
-export default CSSModules(EditorHeading, styles);
+export default CSSModules(Heading, styles);

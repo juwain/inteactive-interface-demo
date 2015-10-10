@@ -1,11 +1,11 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import AceEditor from 'react-ace-wrapper';
-import EditorHeading from '../EditorHeading/EditorHeading.jsx';
+import Heading from './Heading/Heading.jsx';
 import 'brace';
-import styles from './StyleEditor.css';
+import styles from './LayoutEditor.css';
 
-class StyleEditor extends React.Component {
+class LayoutEditor extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,20 +14,20 @@ class StyleEditor extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
   requreStyles(settings) {
-    require('brace/mode/' + settings.styleMode);
+    require('brace/mode/' + settings.layoutMode);
     require('brace/theme/' + settings.theme);
   }
   onChange(code) {
-    //this.props.onChange(code);
+    this.props.onChange(code);
   }
   render() {
     return (
-      <div styleName='style-editor'>
-        <EditorHeading title={this.props.settings.styleMode} />
+      <div styleName='layout-editor'>
+        <Heading title={this.props.settings.layoutMode} />
         <AceEditor
-          mode={this.props.settings.styleMode}
+          mode={this.props.settings.layoutMode}
           theme={this.props.settings.theme}
-          name='StyleEditor'
+          name='LayoutEditor'
           width='100%'
           height='100%'
           onChange={this.onChange}
@@ -37,4 +37,4 @@ class StyleEditor extends React.Component {
   }
 }
 
-export default CSSModules(StyleEditor, styles);
+export default CSSModules(LayoutEditor, styles);
