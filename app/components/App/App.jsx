@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import StyleEditor from '../StyleEditor/StyleEditor.jsx';
-import LayoutEditor from '../LayoutEditor/LayoutEditor.jsx';
+import StyleEditor from '../Editor/StyleEditor/StyleEditor.jsx';
+import LayoutEditor from '../Editor/LayoutEditor/LayoutEditor.jsx';
 import View from '../View/View.jsx';
 import styles from './App.css';
 
