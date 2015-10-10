@@ -1,22 +1,20 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './View.css';
 
-class View extends React.Component {
+export default class View extends React.Component {
   constructor(props) {
     super(props);
 
     this.setRawCode = this.setRawCode.bind(this);
   }
   setRawCode() {
-    return { __html: this.props.layout };
+    let code = '<style>' + this.props.styles + '</style></head><body>' + this.props.layout;
+
+    return { __html: code };
   }
   render() {
     return (
-      <div styleName='view' dangerouslySetInnerHTML={this.setRawCode()}>
+      <div dangerouslySetInnerHTML={this.setRawCode()}>
       </div>
     );
   }
 }
-
-export default CSSModules(View, styles);

@@ -18,7 +18,7 @@ class StyleEditor extends React.Component {
     require('brace/theme/' + settings.theme);
   }
   onChange(code) {
-    //this.props.onChange(code);
+    this.props.onChange(code);
   }
   render() {
     return (

@@ -11,6 +11,7 @@ class App extends React.Component {
 
     this.state = {
       layout: '',
+      styles: '',
       settings: {
         layoutMode: 'html',
         styleMode: 'css',
@@ -19,23 +20,29 @@ class App extends React.Component {
     };
 
     this.setLayout = this.setLayout.bind(this);
+    this.setStyles = this.setStyles.bind(this);
   }
   setLayout(code) {
     clearTimeout(this.timeout);
-
     this.timeout = setTimeout(
       () => this.setState({layout: code}),
     1000);
   }
+  setStyles(code) {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(
+      () => this.setState({styles: code}),
+    1000);
+  }
   render() {
     return (
-      <div styleName='layout'>
+      <div styleName='app'>
         <div styleName='editors'>
           <LayoutEditor settings={this.state.settings} onChange={this.setLayout} />
-          <StyleEditor settings={this.state.settings} />
+          <StyleEditor settings={this.state.settings} onChange={this.setStyles} />
         </div>
         <div styleName='view'>
-          <View layout={this.state.layout} />
+          <View layout={this.state.layout} styles={this.state.styles} />
         </div>
       </div>
     );
