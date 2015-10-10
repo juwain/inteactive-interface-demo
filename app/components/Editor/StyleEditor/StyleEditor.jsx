@@ -1,6 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import AceEditor from 'react-ace-wrapper';
+import EditorHeading from '../EditorHeading/EditorHeading.jsx';
 import 'brace';
 import styles from './StyleEditor.css';
 
@@ -22,6 +23,7 @@ class StyleEditor extends React.Component {
   render() {
     return (
       <div styleName='style-editor'>
+        <EditorHeading title={this.props.settings.styleMode} />
         <AceEditor
           mode={this.props.settings.layoutMode}
           theme={this.props.settings.theme}

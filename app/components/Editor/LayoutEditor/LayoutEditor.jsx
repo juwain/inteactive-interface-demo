@@ -1,6 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import AceEditor from 'react-ace-wrapper';
+import EditorHeading from '../EditorHeading/EditorHeading.jsx';
 import 'brace';
 import styles from './LayoutEditor.css';
 
@@ -22,6 +23,7 @@ class LayoutEditor extends React.Component {
   render() {
     return (
       <div styleName='layout-editor'>
+        <EditorHeading title={this.props.settings.layoutMode} />
         <AceEditor
           mode={this.props.settings.layoutMode}
           theme={this.props.settings.theme}
