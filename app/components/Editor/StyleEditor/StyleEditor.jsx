@@ -25,7 +25,7 @@ class StyleEditor extends React.Component {
       <div styleName='style-editor'>
         <EditorHeading title={this.props.settings.styleMode} />
         <AceEditor
-          mode={this.props.settings.layoutMode}
+          mode={this.props.settings.styleMode}
           theme={this.props.settings.theme}
           name='StyleEditor'
           width='100%'
