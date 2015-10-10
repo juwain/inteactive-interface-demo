@@ -1,8 +1,8 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import StyleEditor from '../Editor/StyleEditor/StyleEditor.jsx';
-import LayoutEditor from '../Editor/LayoutEditor/LayoutEditor.jsx';
-import View from '../View/View.jsx';
+import StyleEditor from './Editor/StyleEditor.jsx';
+import LayoutEditor from './Editor/LayoutEditor.jsx';
+import View from './View/View.jsx';
 import styles from './App.css';
 
 class App extends React.Component {
