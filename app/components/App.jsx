@@ -1,7 +1,6 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import StyleEditor from './Editor/StyleEditor.jsx';
-import LayoutEditor from './Editor/LayoutEditor.jsx';
+import Editor from './Editor/Editor.jsx';
 import View from './View/View.jsx';
 import styles from './App.css';
 
@@ -11,35 +10,40 @@ class App extends React.Component {
 
     this.state = {
       layout: '',
-      styles: '',
-      settings: {
-        layoutMode: 'html',
-        styleMode: 'css',
-        theme: 'github'
-      }
+      styles: ''
     };
 
-    this.setLayout = this.setLayout.bind(this);
-    this.setStyles = this.setStyles.bind(this);
+    this.settings = {
+      layout: {
+        mode: 'html',
+        theme: 'github',
+        title: 'HTML',
+        name: 'LayoutEditor'
+      },
+      styles: {
+        mode: 'css',
+        theme: 'github',
+        title: 'CSS',
+        name: 'StyleEditor'
+      }
+    }
   }
-  setLayout(code) {
+  update(mode, code) {
     clearTimeout(this.timeout);
+
+    let state = {};
+    state[mode] = code;
+
     this.timeout = setTimeout(
-      () => this.setState({layout: code}),
-    1000);
-  }
-  setStyles(code) {
-    clearTimeout(this.timeout);
-    this.timeout = setTimeout(
-      () => this.setState({styles: code}),
+      () => this.setState(state),
     1000);
   }
   render() {
     return (
       <div styleName='app'>
         <div styleName='editors'>
-          <LayoutEditor settings={this.state.settings} onChange={this.setLayout} />
-          <StyleEditor settings={this.state.settings} onChange={this.setStyles} />
+          <Editor settings={this.settings.layout} onChange={this.update.bind(this, 'layout')} />
+          <Editor settings={this.settings.styles} onChange={this.update.bind(this, 'styles')} />
         </div>
         <div styleName='view'>
           <View layout={this.state.layout} styles={this.state.styles} />
