@@ -1,5 +1,10 @@
 .editor {
   display: flex;
   flex-direction: column;
-  height: calc(50vh - 10px);
+  height: calc(50vh - 15px);
+  margin-bottom: 10px;
+}
+
+.editor + .editor {
+  margin-bottom: 0;
 }
