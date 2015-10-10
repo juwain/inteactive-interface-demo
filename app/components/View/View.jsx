@@ -1,6 +1,8 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './View.css';
 
-export default class View extends React.Component {
+class View extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,8 +13,10 @@ export default class View extends React.Component {
   }
   render() {
     return (
-      <div className='view' dangerouslySetInnerHTML={this.setRawCode()}>
+      <div styleName='view' dangerouslySetInnerHTML={this.setRawCode()}>
       </div>
     );
   }
 }
+
+export default CSSModules(View, styles);
