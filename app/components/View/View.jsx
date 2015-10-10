@@ -1,20 +1,22 @@
 import React from 'react';
+import Frame from 'react-frame-component';
 
 export default class View extends React.Component {
   constructor(props) {
     super(props);
-
-    this.setRawCode = this.setRawCode.bind(this);
   }
   setRawCode() {
-    let code = '<style>' + this.props.styles + '</style></head><body>' + this.props.layout;
-
-    return { __html: code };
+    return { __html: this.props.layout };
   }
   render() {
     return (
-      <div dangerouslySetInnerHTML={this.setRawCode()}>
-      </div>
+      <Frame width='100%' frameBorder='0'>
+        <style>
+          {this.props.styles}
+        </style>
+        <div dangerouslySetInnerHTML={this.setRawCode()}>
+        </div>
+      </Frame>
     );
   }
 }

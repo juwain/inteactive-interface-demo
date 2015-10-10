@@ -37,6 +37,7 @@
     "brace": "^0.5.1",
     "react": "^0.13.3",
     "react-ace-wrapper": "^1.0.1",
-    "react-css-modules": "^3.2.3"
+    "react-css-modules": "^3.2.3",
+    "react-frame-component": "^0.3.4"
   }
 }
